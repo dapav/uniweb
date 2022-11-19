@@ -18,7 +18,7 @@ public class StudentService {
         this.studentRepository=studentRepository;
     }
 
-    @GetMapping
+    
     public List<Student> getStudents(){
         return studentRepository.findAll();
     }

@@ -13,10 +13,10 @@ public class StudentConfiguration {
     CommandLineRunner commandLineRunner(StudentRepository repository){
         return args -> {
             Student davor = new Student(1L,"Davor","Pavits","davor1@gmail.com");
-            Student mia = new Student(2L,"Mia","Pavits","mia2@gmail.com");
+
 
             repository.saveAll(
-                    List.of(davor,mia)
+                    List.of(davor)
             );
         };
     }

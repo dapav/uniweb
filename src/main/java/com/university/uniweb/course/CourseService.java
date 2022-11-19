@@ -17,7 +17,7 @@ public class CourseService {
     public CourseService(CourseRepository courseRepository){
         this.courseRepository = courseRepository;
     }
-    @GetMapping
+
     public List<Course> getCourses() {
         return courseRepository.findAll();
     }

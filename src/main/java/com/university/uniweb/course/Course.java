@@ -18,6 +18,8 @@ public class Course {
     )
     private Integer courseId;
 
+    //Define column Name
+    @Column(name = "Title")
     private String courseName;
 
     public Course() {

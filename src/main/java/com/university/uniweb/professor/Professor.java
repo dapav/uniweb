@@ -1,9 +1,17 @@
 package com.university.uniweb.professor;
 
+import lombok.Builder;
+
 import javax.persistence.*;
 
 @Entity
-@Table
+@Builder
+@Table(
+        uniqueConstraints = @UniqueConstraint(
+                name = "email_unique",
+                columnNames = "email_address"
+        )
+)
 public class Professor {
 
     @Id
@@ -20,6 +28,8 @@ public class Professor {
 
     private String firstName;
     private String lastName;
+    @Column(name = "email_address",
+            nullable = false)
     private String email;
 
     public Professor() {

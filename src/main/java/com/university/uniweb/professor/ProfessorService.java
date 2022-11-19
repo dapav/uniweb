@@ -18,7 +18,7 @@ public class ProfessorService {
         this.professorRepository = professorRepository;
     }
 
-    @GetMapping
+
     public List<Professor> getProfessors(){
         return professorRepository.findAll();
     }
