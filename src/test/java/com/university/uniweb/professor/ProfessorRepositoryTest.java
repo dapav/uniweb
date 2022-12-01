@@ -16,16 +16,16 @@ class ProfessorRepositoryTest {
     @Autowired
     private  ProfessorRepository professorRepository;
 
-    @Test
-    public void saveProfessor(){
-        Professor professor = Professor.builder()
-                .firstName("Nikolas")
-                .lastName("Samaras")
-                .email("samNik@uom.edu.gr")
-                .build();
-
-        professorRepository.save(professor);
-    }
+//    @Test
+//    public void saveProfessor(){
+//        Professor professor = Professor.builder()
+//                .firstName("Nikolas")
+//                .lastName("Samaras")
+//                .email("samNik@uom.edu.gr")
+//                .build();
+//
+//        professorRepository.save(professor);
+//    }
 
     @Test
     public void printAllProfessors(){

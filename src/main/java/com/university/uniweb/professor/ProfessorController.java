@@ -5,6 +5,7 @@ import com.university.uniweb.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
@@ -18,6 +19,7 @@ public class ProfessorController {
     public ProfessorController(ProfessorService professorService){
         this.professorService = professorService;
     }
+
 
     @GetMapping
     public List<Professor> getProfessors(){

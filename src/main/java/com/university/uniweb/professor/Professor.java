@@ -1,11 +1,16 @@
 package com.university.uniweb.professor;
 
+import com.university.uniweb.course.Course;
 import lombok.Builder;
+import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
-@Builder
+//@Builder
 @Table(
         uniqueConstraints = @UniqueConstraint(
                 name = "email_unique",
@@ -32,13 +37,23 @@ public class Professor {
             nullable = false)
     private String email;
 
+
+
+
+    @ManyToMany
+    @JoinTable(name = "teach",
+                joinColumns =@JoinColumn(name="professorid"),
+                inverseJoinColumns = @JoinColumn(name="courseid"))
+    private List<Course> courseList = new ArrayList<>();
+
     public Professor() {
     }
 
-    public Professor(String firstName, String lastName, String email) {
+    public Professor(String firstName, String lastName, String email, List<Course> courseList) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.courseList = courseList;
     }
 
     public Professor(Integer professorId, String firstName, String lastName, String email) {
@@ -46,6 +61,7 @@ public class Professor {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+
     }
 
     public Integer getProfessorId() {
@@ -80,6 +96,9 @@ public class Professor {
         this.email = email;
     }
 
+    public List<Course> getCourseList() {
+        return courseList;
+    }
     @Override
     public String toString() {
         return "Professor{" +
@@ -88,5 +107,16 @@ public class Professor {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    @ManyToMany
+    private Collection<Course> courses;
+
+    public Collection<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Collection<Course> courses) {
+        this.courses = courses;
     }
 }

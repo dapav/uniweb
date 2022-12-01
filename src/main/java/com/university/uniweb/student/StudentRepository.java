@@ -10,4 +10,8 @@ import java.util.Optional;
 public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query("select s from Student s where s.email=?1")
     Optional<Student> findStudentByEmail(String email);
+
+
+    //can contain other methods
+    //e.i findStudentbyfirstName,lastname,email, contains etc
 }
